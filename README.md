@@ -54,3 +54,7 @@ To get started with this project:
 ## License
 
 This project is licensed under the  Apache License - see the LICENSE file for details.
+
+## Refrences
+
+<a href="https://code-maze.com/onion-architecture-in-aspnetcore/">Code Maze</a>
