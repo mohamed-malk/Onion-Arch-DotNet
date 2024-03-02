@@ -12,7 +12,15 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+string corsName = "openAll";
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: corsName,
+                      policy =>
+                      {
+                          policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+                      });
+});
 #region Add Services
 
 builder.Services.AddScoped<IAdminService, AdminService>();
@@ -31,6 +39,8 @@ builder.Services.AddControllers().AddApplicationPart(
 #endregion
 
 var app = builder.Build();
+
+app.UseCors(corsName);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

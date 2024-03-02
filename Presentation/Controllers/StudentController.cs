@@ -1,5 +1,6 @@
 ﻿using Contracts.Student;
 using Domain.Enums;
+using Domain.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 using Services.Abstraction.DataServices;
 
@@ -60,7 +61,6 @@ public class StudentController : ControllerBase
             _adminService.StudentService.Add(student.Name, student.Age,
                 student.Address!, student.Image, student.DepartmentId);
             return Ok("Student is Added sucessfully");
-
         }
         catch (Exception ex)
         {
@@ -77,11 +77,11 @@ public class StudentController : ControllerBase
             _adminService.StudentService.Update(id, newValues);
             return Ok("Student is Updates sucessfully");
         }
-        catch (NullReferenceException ex)
+        catch (NotFoundException ex)
         {
             return NotFound(ex.Message);
         }
-        catch (ArgumentException ex)
+        catch (PropertyException ex)
         {
             return BadRequest(ex.Message);
         }
@@ -92,14 +92,14 @@ public class StudentController : ControllerBase
     }
 
     [HttpDelete("Delete")]
-    public IActionResult Delere(int id)
+    public IActionResult Delere([FromBody] int id)
     {
         try
         {
             _adminService.StudentService.Delete(id);
             return Ok("Student is Deleted sucessfully");
         }
-        catch (NullReferenceException ex)
+        catch (NotFoundException ex)
         {
             return NotFound(ex.Message);
         }

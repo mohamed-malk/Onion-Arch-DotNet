@@ -85,11 +85,11 @@ public class DepartmentController : ControllerBase
             _adminService.DepartmentService.Update(id, newValues);
             return Ok("Department is Updates sucessfully");
         }
-        catch (NullReferenceException ex)
+        catch (NotFoundException ex)
         {
             return NotFound(ex.Message);
         }
-        catch (ArgumentException ex)
+        catch (PropertyException ex)
         {
             return BadRequest(ex.Message);
         }
@@ -100,14 +100,14 @@ public class DepartmentController : ControllerBase
     }
 
     [HttpDelete("Delete")]
-    public IActionResult Delere(int id)
+    public IActionResult Delere([FromBody]int id)
     {
         try
         {
             _adminService.DepartmentService.Delete(id);
             return Ok("Department is Deleted sucessfully");
         }
-        catch (NullReferenceException ex)
+        catch (NotFoundException ex)
         {
             return NotFound(ex.Message);
         }

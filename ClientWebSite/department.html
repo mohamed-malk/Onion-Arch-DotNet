@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Student</title>
+    <title>Department</title>
 
     <link
       href="node_modules/bootstrap/dist/css/bootstrap.min.css"
@@ -30,12 +30,12 @@
           <div class="collapse navbar-collapse" id="navbarColor02">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#"
+                <a class="nav-link" aria-current="page" href="student.html"
                   >Student</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="department.html">Department</a>
+                <a class="nav-link active" href="#">Department</a>
               </li>
             </ul>
           </div>
@@ -48,7 +48,7 @@
             class="row g-5 needs-validation mt-5 p-5 pt-2 shadow-lg rounded"
             novalidate
           >
-            <div class="col-md-6">
+            <div class="">
               <label for="name_input" class="form-label">Name</label>
               <input
                 oninput="checkInput(this, checkStr)"
@@ -62,66 +62,46 @@
             </div>
 
             <div class="col-md-6">
-              <label for="age_input" class="form-label">Age</label>
-              <input
-                oninput="checkInput(this, checkNumber)"
-                type="text"
-                class="form-control text-center"
-                id="age_input"
-                value="Mark"
-                required
-              />
-              <div id="age_feed" class="valid-feedback">Looks good!</div>
-            </div>
-
-            <div class="col-md-6">
-              <label for="address_input" class="form-label">Address</label>
+              <label for="address_input" class="form-label">Location</label>
               <input
                 oninput="checkInput(this, checkStr)"
                 type="text"
                 class="form-control text-center"
                 id="address_input"
-                value="Mark"
+                value=""
                 required
               />
               <div id="address_feed" class="valid-feedback">Looks good!</div>
             </div>
+
             <div class="col-md-6">
-              <label for="img_input" class="form-label">Image</label>
+              <label for="mng_input" class="form-label">Manager</label>
               <input
                 oninput="checkInput(this, checkStr)"
                 type="text"
                 class="form-control text-center is-valid"
-                id="img_input"
+                id="mng_input"
                 value=""
                 required
               />
-              <div id="img_feed" class="valid-feedback"></div>
-            </div>
-
-            <div class="">
-              <label for="dept_input" class="form-label">Department</label>
-              <select class="form-select text-center" id="dept_input" required>
-                <option selected disabled value="">Choose</option>
-              </select>
-              <div id="dept_feed" class="invalid-feedback">
-                Please select a valid state.
-              </div>
+              <div id="mng_feed" class="valid-feedback"></div>
             </div>
 
             <div class="d-flex justify-content-center col-12">
               <button
-                id="push_std"
+                id="push_dept"
                 class="btn btn-primary w-75"
-                onclick="addStudent()"
+                onclick="addDepartment()"
               >
-                Add Student
+                Add Department
               </button>
             </div>
           </div>
 
+          <!--  -->
+
           <div
-            id="table_sh"
+            id="table_dept"
             hidden
             class="row g-5 mt-5 p-3 pt-0 pb-2 mb-4 shadow-lg rounded"
           >
@@ -129,12 +109,11 @@
               <thead>
                 <tr>
                   <th scope="col">Name</th>
-                  <th scope="col">Age</th>
-                  <th scope="col">Address</th>
-                  <th scope="col">Image</th>
-                  <th scope="col">Department Name</th>
-                  <th scope="col">Deletee</th>
-                  <th scope="col">Edit</th>
+                  <th scope="col">Manager</th>
+                  <th scope="col">Location</th>
+
+                  <th scope="col">Delete</th>
+                  <th scope="col">Update</th>
                 </tr>
               </thead>
               <tbody id="tb_content"></tbody>
@@ -224,7 +203,7 @@
       </div>
     </div>
 
-    <script src="js/student.js"></script>
+    <script src="js/department.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   </body>
 </html>

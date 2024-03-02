@@ -1,4 +1,6 @@
 ﻿using Contracts.Department;
+using Domain.Enums;
+using Mapster;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Services.Filters;
@@ -14,30 +16,51 @@ public class DepartmentLocationAttribute : ActionFilterAttribute
         try
         {
             var deptObject = context.ActionArguments.Values;
-            DepartmenCreatetDto? department = null;
 
             if (deptObject is null)
                 context.Result = new BadRequestObjectResult("Must send an object");
-            else if (deptObject.Count != 1)
-                context.Result = new BadRequestObjectResult("Must send only one object");
-            else
+            else if (deptObject.Count == 1)
             {
                 try
                 {
-                    department = (DepartmenCreatetDto)deptObject.FirstOrDefault()!;
+                    if (!new FiltersService()
+                   .DepartmentFilterService
+                   .LocationFiler(
+                        deptObject.ToList()[0]
+                        .Adapt<DepartmenCreatetDto>().Location))
+                        context.Result = new
+                            BadRequestObjectResult("Location is not valid");
                 }
                 catch (Exception)
                 {
                     context.Result = new
                         BadRequestObjectResult("Object Must Be an DepartmentDto Object");
                 }
-                if (!new FiltersService()
-                    .DepartmentFilterService
-                    .LocationFiler(department!.Value.Location))
+               
+            }   
+            else if(deptObject.Count == 2)
+            {
+                try
+                {
+                    if (!new FiltersService()
+                        .DepartmentFilterService
+                        .LocationFiler(
+                        deptObject.ToList()[1]
+                        .Adapt<Dictionary<Properties, string>>()[Properties.Location]))
+                        context.Result = new
+                            BadRequestObjectResult("Location is not valid");
+                 
+                }
+                catch (Exception)
+                {
                     context.Result = new
-                        BadRequestObjectResult("Location is not valid");
+                        BadRequestObjectResult("Object Must Be an DepartmentDto Object");
+                }
 
             }
+            else
+                context.Result = new BadRequestObjectResult("Must send only one object");
+                
         }
         catch(Exception ex)
         {

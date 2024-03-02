@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="69" height="69" viewBox="0 0 69 69">
+  <g id="style_bulk" data-name="style=bulk" transform="translate(-1.25 -3.25)">
+    <g id="warning-box" transform="translate(1.25 1.25)">
+      <path id="vector_Stroke_" data-name="vector (Stroke)" d="M1.25,22.913A21.663,21.663,0,0,1,22.913,1.25H48.587A21.663,21.663,0,0,1,70.25,22.913V48.587A21.663,21.663,0,0,1,48.587,70.25H22.913A21.663,21.663,0,0,1,1.25,48.587Z" transform="translate(-1.25 0.75)" fill="#efcc00" fill-rule="evenodd"/>
+      <path id="vector_Stroke__2" data-name="vector (Stroke)_2" d="M13.657,6.25a2.407,2.407,0,0,1,2.407,2.407v22.8a2.407,2.407,0,0,1-4.814,0V8.657A2.407,2.407,0,0,1,13.657,6.25Z" transform="translate(20.843 9.797)" fill="#fff" fill-rule="evenodd"/>
+      <path id="ellipse_Stroke_" data-name="ellipse (Stroke)" d="M11,19.209A3.209,3.209,0,0,1,14.209,16h.032a3.209,3.209,0,1,1,0,6.419h-.032A3.209,3.209,0,0,1,11,19.209Z" transform="translate(20.291 31.337)" fill="#fff" fill-rule="evenodd"/>
+    </g>
+  </g>
+</svg>

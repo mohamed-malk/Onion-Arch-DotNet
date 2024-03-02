@@ -29,7 +29,7 @@ internal sealed class StudentRepository : IStudentRepository
         .Where(s => s.Name.ToLower() == name.ToLower())
         .Include(s => s.Department).ToList();
 
-    public void Update(Student entity) => _context.Remove(entity);
+    public void Update(Student entity) => _context.Update(entity);
 
     #endregion
 }

@@ -120,6 +120,10 @@ internal sealed class StudentService : IStudentService
                 case Properties.Image:
                     student.Image = item.Value.ToString();
                     break;
+                case Properties.DepartmentId:
+                    student.DepartmentId = int.Parse(item.Value);
+                    break;
+
                 default:
                     throw new PropertyException(item.Key.ToString());
             }

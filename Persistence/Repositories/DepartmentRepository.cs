@@ -29,7 +29,7 @@ internal sealed class DepartmentRepository : IDepartmentRepository
         .Include(s => s.Students)
         .FirstOrDefault(s => s.Name.ToLower() == name.ToLower());
 
-    public void Update(Department entity) => _context.Remove(entity);
+    public void Update(Department entity) => _context.Update(entity);
 
     #endregion
 }
