@@ -7,7 +7,7 @@ This repository demonstrates the implementation of the Onion Architecture in .NE
 Onion Architecture is a software architectural pattern that provides a way to structure an application to manage dependencies. The core idea is to build the application around an independent domain layer, with other layers (such as infrastructure and UI) depending on the domain layer, but not on each other.
 
 ### Advantages of the Onion Architecture
-All of the layers interact with each other strictly through the interfaces defined in the layers below. The flow of dependencies is towards the core of the Onion. We will explain why this is important in the next section.
+All of the layers interact with each other strictly through the interfaces defined in the layers below. The flow of dependencies is towards the core of the Onion.
 
 Using dependency inversion throughout the project, depending on abstractions (interfaces) and not the implementations, allows us to switch out the implementation at runtime transparently. We are depending on abstractions at compile-time, which gives us strict contracts to work with, and we are being provided with the implementation at runtime.
 
