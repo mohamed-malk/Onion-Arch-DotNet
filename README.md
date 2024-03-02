@@ -24,15 +24,21 @@ The EF Code First approach is used to define the database schema using C# classe
 
 ## Project Structure
 
+### Server Side
 The project is structured into multiple layers:
 - `Domain Layer`: Contains the entities and business logic.
 - `Service or Application Layer`: Contains services that coordinate between the domain and infrastructure layers.
 - `Infrastructure Layer`: Contains the EF DbContext, repositories, and other infrastructure-related code.
-- `Presentation Layer`: The entry point of the application, typically a web API or MVC project.
+- `Presentation Layer`: The entry point of the application, typically a web **API** project.
 <p align="center">
   <img style="width:500px; hight:500px;" alt="Onion Arch"
     src="https://code-maze.com/wp-content/uploads/2021/07/onion_architecture.jpeg" />
 </p>
+
+### Client Side 
+Simple Web app to test a web **API** project:
+- `Department Page`: call ***Department Controller***
+- `Student Page`: call ***Student Controller***
 
 ## Getting Started
 
